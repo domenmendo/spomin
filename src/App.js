@@ -4,7 +4,12 @@ import './App.css';
 
 function MemoryGame() {
 
-    const cards = Array.from({ length: 16 }, (_, index) => ({id: index + 1, content: 'X',}));
+    const cardNames= ["name1","name2","name3","name4","name5","name6","name7","name8"];
+
+    const cards = Array.from({ length: 16 }, (_, index) => ({
+      id: index + 1, 
+      content: cardNames[Math.floor(Math.random() * cardNames.length)],
+    }));
 
     const [flippedCards, setFlippedCards] = useState([]);
 
@@ -15,7 +20,7 @@ function MemoryGame() {
         if (flippedCards.length === 1) {//if this is the second card then...
           setTimeout(() => {
             setFlippedCards([]);
-          }, 2000);
+          }, 2000);//2s
         }
       }
     }
